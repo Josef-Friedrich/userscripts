@@ -13,11 +13,12 @@
 // @compatible   firefox+greasemonkey
 // @licence      MIT (https://opensource.org/licenses/MIT)
 // @include      http*://musicbrainz.org/release/*/edit-relationships
+// @require      https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
 
 $(document).ready(function() {
     $('.rel-add').click(function() {alert("Add!");});
-    return false;
+    Mousetrap.bind('4', function() { alert("Add!"); });
 });
