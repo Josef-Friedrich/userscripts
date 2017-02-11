@@ -4,7 +4,7 @@
 // @name         MusicBrainz: Shortcuts
 // @namespace    mbz-joseffriedrich
 // @author       Josef Friedrich
-// @version      1
+// @version      2
 // @downloadURL  https://raw.githubusercontent.com/Josef-Friedrich/greasemonkey-user-scripts/master/mbz-shortcuts.user.js
 // @updateURL    https://raw.githubusercontent.com/Josef-Friedrich/greasemonkey-user-scripts/master/mbz-shortcuts.user.js
 // @supportURL   https://github.com/Josef-Friedrich/greasemonkey-user-scripts
@@ -19,6 +19,7 @@
 // ==/UserScript==
 
 $(document).ready(function() {
-    document.getElementById("batch-recording").setAttribute("accesskey", "r");
-    document.getElementById("batch-work").setAttribute("accesskey", "w");
+    //document.getElementById("batch-recording").setAttribute("accesskey", "r");
+    //document.getElementById("batch-work").setAttribute("accesskey", "w");
+    $("#batch-recording").attr( "accesskey", "r" );
 });
