@@ -21,4 +21,6 @@
 $(document).ready(function() {
     $('.rel-add').click(function() {alert("Add!");});
     Mousetrap.bind('4', function() { alert("Add!"); });
+    Mousetrap.bind('ctrl+1', function() { alert("controll!"); });
+    Mousetrap.bind('ctrl+2', function() { openBatchRecordingsDialog(); });
 });
