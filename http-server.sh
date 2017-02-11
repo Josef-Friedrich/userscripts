@@ -1,5 +1,7 @@
 #! /bin/sh
 
-# npm install -g http-server
+if ! command -v http-server ; then
+	npm install -g http-server
+fi
 
 http-server
