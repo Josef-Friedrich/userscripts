@@ -4,7 +4,7 @@
 // @name         MusicBrainz: Shortcuts
 // @namespace    mbz-joseffriedrich
 // @author       Josef Friedrich
-// @version      5
+// @version      6
 // @downloadURL  https://raw.githubusercontent.com/Josef-Friedrich/greasemonkey-user-scripts/master/mbz-shortcuts.user.js
 // @updateURL    https://raw.githubusercontent.com/Josef-Friedrich/greasemonkey-user-scripts/master/mbz-shortcuts.user.js
 // @supportURL   https://github.com/Josef-Friedrich/greasemonkey-user-scripts
@@ -19,9 +19,7 @@
 // ==/UserScript==
 
 function AddShortCuts(id, key) {
-    $("#" + id)
-      .attr("accesskey", key)
-      .attr("title", "Shortcut: " + key);
+    $("#" + id).attr("accesskey", key).attr("title", "Shortcut: " + key);
 }
 
 $(window).on("load", function() {
