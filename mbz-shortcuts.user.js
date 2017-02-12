@@ -20,8 +20,7 @@
 
 function AddShortCuts(id, key) {
   var link = $('#' + id);
-  link.bind('keydown', key, function() { this.click();
-  });
+  link.bind('keydown', key, function() { this.click(); });
   link.attr({
     title: 'Shortcut: ' + key
   });
