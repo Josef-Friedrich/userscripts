@@ -2,9 +2,9 @@
 'use strict';
 // ==UserScript==
 // @name         MusicBrainz: merge recordings from acoustID page
-// @namespace    mbz-loujine
-// @author       loujine
-// @version      2020.9.14
+// @namespace    josef-friedrich
+// @author       loujine, Josef Friedrich
+// @version      2023-06-30
 // @downloadURL  https://raw.githubusercontent.com/loujine/musicbrainz-scripts/master/acoustid-merge-recordings.user.js
 // @updateURL    https://raw.githubusercontent.com/loujine/musicbrainz-scripts/master/acoustid-merge-recordings.user.js
 // @supportURL   https://github.com/loujine/musicbrainz-scripts
