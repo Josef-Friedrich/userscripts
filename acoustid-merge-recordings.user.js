@@ -5,9 +5,9 @@
 // @namespace    josef-friedrich
 // @author       loujine, Josef Friedrich
 // @version      2023-06-30
-// @downloadURL  https://raw.githubusercontent.com/loujine/musicbrainz-scripts/master/acoustid-merge-recordings.user.js
-// @updateURL    https://raw.githubusercontent.com/loujine/musicbrainz-scripts/master/acoustid-merge-recordings.user.js
-// @supportURL   https://github.com/loujine/musicbrainz-scripts
+// @downloadURL  https://github.com/Josef-Friedrich/userscripts/raw/main/acoustid-merge-recordings.user.js
+// @updateURL    https://github.com/Josef-Friedrich/userscripts/raw/main/acoustid-merge-recordings.user.js
+// @supportURL   https://github.com/Josef-Friedrich/userscripts
 // @icon         https://raw.githubusercontent.com/loujine/musicbrainz-scripts/master/icon.png
 // @description  musicbrainz.org: merge recordings from acoustID page
 // @compatible   firefox+tampermonkey
