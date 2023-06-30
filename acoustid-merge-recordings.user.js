@@ -8,7 +8,6 @@
 // @downloadURL  https://github.com/Josef-Friedrich/userscripts/raw/main/acoustid-merge-recordings.user.js
 // @updateURL    https://github.com/Josef-Friedrich/userscripts/raw/main/acoustid-merge-recordings.user.js
 // @supportURL   https://github.com/Josef-Friedrich/userscripts
-// @icon         https://raw.githubusercontent.com/loujine/musicbrainz-scripts/master/icon.png
 // @description  musicbrainz.org: merge recordings from acoustID page
 // @compatible   firefox+tampermonkey
 // @license      MIT
