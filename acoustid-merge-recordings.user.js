@@ -57,7 +57,7 @@ function launchMerge() {
 
 (function displayButtons () {
     document.getElementsByTagName('table')[1].children[0].children[0].insertAdjacentHTML(
-        'beforeend', `
+        'afterbegin', `
         <th>Merge selection
           <input id="checkAll" value="Select all" type="button">
         </th>
@@ -66,11 +66,11 @@ function launchMerge() {
         const mbid = node.href.split('/')[4];
         const tr = node.parentElement.parentElement;
         if (
-            node.parentElement.tagName != 'I' &&
+            // node.parentElement.tagName != 'I' && // Italic when recording title is displayed only as an UUID
             !tr.classList.contains('mbid-disabled')
         ) {
             tr.insertAdjacentHTML(
-                'beforeend',
+                'afterbegin',
                 `<td><input class="mbmerge" value="${mbid}" type="checkbox"></td>`
             );
         }
