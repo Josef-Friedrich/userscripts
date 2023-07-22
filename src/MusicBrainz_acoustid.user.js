@@ -2,11 +2,12 @@
 
 // ==UserScript==
 // @name          Musicbrainz: Compare AcoustIDs easier!
+// @namespace    josef-friedrich
 // @version       2023.7.10
 // @description   Displays AcoustID fingerprints in more places at MusicBrainz.
 // @grant         none
-// @downloadURL   https://github.com/otringal/MB-userscripts/raw/master/Musicbrainz_acoustid.user.js
-// @updateURL     https://github.com/otringal/MB-userscripts/raw/master/Musicbrainz_acoustid.user.js
+// @downloadURL   https://github.com/Josef-Friedrich/userscripts/raw/main/src/MusicBrainz_acoustid.user.js
+// @updateURL     https://github.com/Josef-Friedrich/userscripts/raw/main/src/MusicBrainz_acoustid.user.js
 // @match         *://*.musicbrainz.org/artist/*/recordings*
 // @match         *://*.musicbrainz.org/artist/*/*edits
 // @match         *://*.musicbrainz.org/collection/*/*
