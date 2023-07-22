@@ -8,7 +8,7 @@
 // @downloadURL  https://raw.githubusercontent.com/Josef-Friedrich/greasemonkey-user-scripts/master/mbz-shortcuts.user.js
 // @updateURL    https://raw.githubusercontent.com/Josef-Friedrich/greasemonkey-user-scripts/master/mbz-shortcuts.user.js
 // @supportURL   https://github.com/Josef-Friedrich/greasemonkey-user-scripts
-// @icon         https://raw.githubusercontent.com/Josef-Friedrich/userscripts/master/icon.png
+// @icon         https://raw.githubusercontent.com/Josef-Friedrich/userscripts/main/icon.png
 // @description  musicbrainz.org: Add some shortcuts
 // @compatible   firefox+greasemonkey
 // @licence      MIT (https://opensource.org/licenses/MIT)

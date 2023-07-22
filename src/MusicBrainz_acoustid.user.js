@@ -19,7 +19,7 @@
 // @match         *://*.musicbrainz.org/user/*/votes*
 // @exclude       *musicbrainz.org/release/*/edit
 // @exclude       *musicbrainz.org/release/*/edit-relationships
-// @icon          https://acoustid.org/static/acoustid-wave-12.png
+// @icon          https://raw.githubusercontent.com/Josef-Friedrich/userscripts/main/icon.png
 // @run-at        document-end
 // ==/UserScript==
 //

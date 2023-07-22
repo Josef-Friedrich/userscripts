@@ -13,6 +13,7 @@
 // @description  musicbrainz.org: merge recordings from acoustID page
 // @compatible   firefox+tampermonkey
 // @license      MIT
+// @icon         https://raw.githubusercontent.com/Josef-Friedrich/userscripts/main/icon.png
 // @include      http*://acoustid.org/track/*
 // @grant        GM_xmlhttpRequest
 // @run-at       document-end
