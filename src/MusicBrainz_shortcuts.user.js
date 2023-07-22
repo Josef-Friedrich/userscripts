@@ -2,6 +2,7 @@
 'use strict';
 // ==UserScript==
 // @name         MusicBrainz: Shortcuts
+// @version      0.1.0
 // @namespace    josef-friedrich
 // @author       Josef Friedrich
 // @description  Add keyboard shortcuts to navigation to important MusicBrainz pages.

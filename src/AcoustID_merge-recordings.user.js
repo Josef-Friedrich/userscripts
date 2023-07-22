@@ -6,7 +6,7 @@
 // @name         MusicBrainz: merge recordings from acoustID page
 // @namespace    josef-friedrich
 // @author       loujine, Josef Friedrich
-// @version      2023-06-30
+// @version      0.1.0
 // @downloadURL  https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js
 // @updateURL    https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js
 // @supportURL   https://github.com/Josef-Friedrich/userscripts
