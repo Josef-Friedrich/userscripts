@@ -2,7 +2,7 @@
 
 // ==UserScript==
 // @name          Musicbrainz: Compare AcoustIDs easier!
-// @namespace    josef-friedrich
+// @namespace     josef-friedrich
 // @version       2023.7.10
 // @description   Displays AcoustID fingerprints in more places at MusicBrainz.
 // @grant         none

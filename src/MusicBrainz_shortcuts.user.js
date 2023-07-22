@@ -4,10 +4,11 @@
 // @name         MusicBrainz: Shortcuts
 // @namespace    josef-friedrich
 // @author       Josef Friedrich
+// @description  Add keyboard shortcuts to navigation to important MusicBrainz pages.
 // @version      10
-// @downloadURL  https://raw.githubusercontent.com/Josef-Friedrich/greasemonkey-user-scripts/master/mbz-shortcuts.user.js
-// @updateURL    https://raw.githubusercontent.com/Josef-Friedrich/greasemonkey-user-scripts/master/mbz-shortcuts.user.js
-// @supportURL   https://github.com/Josef-Friedrich/greasemonkey-user-scripts
+// @downloadURL  https://github.com/Josef-Friedrich/userscripts/raw/main/src/MusicBrainz_shortcuts.user.js
+// @updateURL    https://github.com/Josef-Friedrich/userscripts/raw/main/src/MusicBrainz_shortcuts.user.js
+// @supportURL   https://github.com/Josef-Friedrich/userscripts
 // @icon         https://raw.githubusercontent.com/Josef-Friedrich/userscripts/main/icon.png
 // @description  musicbrainz.org: Add some shortcuts
 // @compatible   firefox+greasemonkey
