@@ -260,11 +260,24 @@ function updatePages (path) {
       path.match(/edit/) ||
       path.match(/votes/))
   ) {
-    if (path.match(/recording\/merge/)) var check = true
-    else var check = false
+    if (path.match(/recording\/merge/)) {
+      var check = true
+    } else {
+      var check = false
+    }
     updateMergeOrEdits(check, path)
     return
   }
 }
 
-// updatePages(window.location.href)
+function addUpdateButton () {
+  const elSidebar = document.getElementById('sidebar')
+  const button = document.createElement('button')
+  button.textContent = 'Show AcoustIDs'
+  button.onclick = function () {
+    updatePages(window.location.href)
+  }
+  elSidebar.appendChild(button)
+}
+
+addUpdateButton()
