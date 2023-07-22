@@ -1,3 +1,5 @@
+// Origin: https://github.com/loujine/musicbrainz-scripts/blob/master/acoustid-merge-recordings.user.js
+
 /* globals $ */
 'use strict';
 // ==UserScript==

@@ -2,3 +2,7 @@
 
 
 * [MusicBrainz: merge recordings from acoustID page](https://github.com/Josef-Friedrich/userscripts/raw/main/acoustid-merge-recordings.user.js)
+
+
+
+https://wiki.musicbrainz.org/Guides/Userscripts
