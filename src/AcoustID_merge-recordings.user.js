@@ -6,7 +6,7 @@
 // @name         MusicBrainz: merge recordings from acoustID page
 // @namespace    josef-friedrich
 // @author       loujine, Josef Friedrich
-// @version      0.3.0
+// @version      0.4.0
 // @downloadURL  https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js
 // @updateURL    https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js
 // @supportURL   https://github.com/Josef-Friedrich/userscripts
@@ -46,7 +46,7 @@
  *
  * @return {string} - For example `https://musicbrainz.org/ws/js/entity/887cf84f-d47c-4963-8b66-2ce71257815a`
  */
-function assembleEntityLookupUrl(recordingId) {
+function assembleEntityLookupUrl (recordingId) {
   return `https://musicbrainz.org/ws/js/entity/${recordingId}`
 }
 
@@ -110,17 +110,7 @@ function launchMerge () {
   }, document.querySelectorAll('.mbmerge:checked').length * 1000 + 1000)
 }
 
-;(function displayButtons () {
-  document
-    .getElementsByTagName('table')[1]
-    .children[0].children[0].insertAdjacentHTML(
-      'afterbegin',
-      `
-        <th>Merge selection
-          <input id="checkAll" value="Select all" type="button">
-        </th>
-    `
-    )
+function addCheckboxes () {
   document.querySelectorAll('table a[href*="/recording/"]').forEach(node => {
     const mbid = node.href.split('/')[4]
     const tr = node.parentElement.parentElement
@@ -134,6 +124,22 @@ function launchMerge () {
       )
     }
   })
+}
+
+function addButtonSelectAll () {
+  document
+    .getElementsByTagName('table')[1]
+    .children[0].children[0].insertAdjacentHTML(
+      'afterbegin',
+      `
+      <th>Merge selection
+        <input id="checkAll" value="Select all" type="button">
+      </th>
+  `
+    )
+}
+
+function addButtonLaunchMerge () {
   document.getElementsByTagName('table')[1].insertAdjacentHTML(
     'afterend',
     `
@@ -141,7 +147,15 @@ function launchMerge () {
         <span id="merge-text"></span>
     `
   )
-})()
+}
+
+function addHtmlElements () {
+  addCheckboxes()
+  addButtonSelectAll()
+  addButtonLaunchMerge()
+}
+
+addHtmlElements()
 
 $(document).ready(function () {
   document.getElementById('checkAll').addEventListener('click', checkAll)
