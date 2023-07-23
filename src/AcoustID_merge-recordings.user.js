@@ -3,10 +3,10 @@
 /* globals $ */
 'use strict'
 // ==UserScript==
-// @name         MusicBrainz: merge recordings from acoustID page
+// @name         MusicBrainz: Merge recordings from the AcoustID track page (https://acoustid.org/track/…)
 // @namespace    josef-friedrich
 // @author       loujine, Josef Friedrich
-// @version      0.4.0
+// @version      0.5.0
 // @downloadURL  https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js
 // @updateURL    https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js
 // @supportURL   https://github.com/Josef-Friedrich/userscripts
@@ -24,6 +24,11 @@
 
 // Single recording
 // https://acoustid.org/track/7c64a5ef-e3a0-47fd-853a-4432d705a59e
+
+/**
+ * https://musicbrainz.org/doc/MusicBrainz_API/Rate_Limiting
+ */
+const RATE_LIMIT = 1000
 
 /**
  * Result from `https://musicbrainz.org/ws/js/entity/887cf84f-d47c-4963-8b66-2ce71257815a`
@@ -75,7 +80,7 @@ function checkAll () {
   })
 }
 
-function launchMerge () {
+function mergeSelected () {
   /**
    * @type {string[]}
    */
@@ -92,73 +97,118 @@ function launchMerge () {
         GM_xmlhttpRequest({
           method: 'GET',
           url: assembleEntityLookupUrl(checkboxElement.value),
-          timeout: 1000,
+          timeout: RATE_LIMIT,
           onload: response => {
             document.getElementById(
               'merge-text'
-            ).textContent = `Fetched internal id for recording ${index}`
+            ).textContent = `Fetched internal ID for the recording ${index}`
             ids.push(JSON.parse(response.responseText).id)
           }
         })
-      }, 1000 * index)
+      }, RATE_LIMIT * index)
     })
   setTimeout(function () {
     const url = assembleMergeUrl(ids)
     document.getElementById('merge-text').textContent = 'Opening merge page'
-    console.log('Merge URL is ' + url)
     window.open(url)
-  }, document.querySelectorAll('.mbmerge:checked').length * 1000 + 1000)
+  }, document.querySelectorAll('.mbmerge:checked').length * RATE_LIMIT +
+    RATE_LIMIT)
 }
 
+function checkAllAndMergeAll () {
+  checkAll()
+  mergeSelected()
+}
+
+/**
+ * Linked MusicBrainz recordings table
+ */
+const tableElement = document.getElementsByTagName('table')[1]
+
+/**
+ * ## Row without title and artist
+ *
+ * ```html
+ * <tr id="434901a2-ca49-495c-ae40-748e03c55fac">
+ *   <td colspan="3"><i><a href="//musicbrainz.org/recording/43…">434901a2…</a></i></td>
+ *   <td>1</td>
+ * </tr>
+ * ```
+ *
+ * ## Row with title and artist
+ *
+ * ```html
+ * <tr id="bdb59eed-c08e-4a3d-973e-445185a6cdf0">
+ *   <td><a href="//musicbrainz.org/recording/bd…">I Just Called To Say I Love You</a></td>
+ *   <td>Stevie Wonder</td>
+ *   <td>4:23</td>
+ *   <td>1</td>
+ * </tr>
+ * ```
+ *
+ * ## Row disabled
+ *
+ * ```html
+ * <tr class="mbid-disabled" id="66849885-1d7a-4778-8d87-67915bdf2016">
+ *   <td><a href="//musicbrainz.org/recording/66…">Creepin’</a></td>
+ *   <td>Stevie Wonder</td>
+ *   <td>4:20</td>
+ *   <td>42</td>
+ * </tr>
+ * ```
+ */
 function addCheckboxes () {
-  document.querySelectorAll('table a[href*="/recording/"]').forEach(node => {
-    const mbid = node.href.split('/')[4]
-    const tr = node.parentElement.parentElement
-    if (
-      // node.parentElement.tagName != 'I' && // Italic when recording title is displayed only as an UUID
-      !tr.classList.contains('mbid-disabled')
-    ) {
-      tr.insertAdjacentHTML(
-        'afterbegin',
-        `<td><input class="mbmerge" value="${mbid}" type="checkbox"></td>`
-      )
+  tableElement.querySelectorAll('tr').forEach(tableRowElement => {
+    const mbid = tableRowElement.id
+    if (mbid !== '') {
+      if (tableRowElement.classList.contains('mbid-disabled')) {
+        tableRowElement.insertAdjacentHTML('afterbegin', `<td></td>`)
+      } else {
+        tableRowElement.insertAdjacentHTML(
+          'afterbegin',
+          `<td><input class="mbmerge" value="${mbid}" type="checkbox"></td>`
+        )
+      }
     }
   })
 }
 
-function addButtonSelectAll () {
-  document
-    .getElementsByTagName('table')[1]
-    .children[0].children[0].insertAdjacentHTML(
-      'afterbegin',
-      `
-      <th>Merge selection
-        <input id="checkAll" value="Select all" type="button">
-      </th>
+function addTableHeader () {
+  tableElement.children[0].children[0].insertAdjacentHTML(
+    'afterbegin',
+    `
+      <th>Merge</th>
   `
-    )
+  )
 }
 
-function addButtonLaunchMerge () {
-  document.getElementsByTagName('table')[1].insertAdjacentHTML(
+function addButtons () {
+  tableElement.insertAdjacentHTML(
     'afterend',
     `
-        <input id="merge" value="Launch merge in MusicBrainz" type="button">
-        <span id="merge-text"></span>
+      <input id="check-all" value="Select all" type="button">
+      <input id="merge-selected" value="Merge selected" type="button">
+      <input id="merge-all" value="Merge all" type="button">
+      <span id="merge-text"></span>
     `
   )
 }
 
 function addHtmlElements () {
   addCheckboxes()
-  addButtonSelectAll()
-  addButtonLaunchMerge()
+  addTableHeader()
+  addButtons()
 }
 
 addHtmlElements()
 
 $(document).ready(function () {
-  document.getElementById('checkAll').addEventListener('click', checkAll)
-  document.getElementById('merge').addEventListener('click', launchMerge)
+  document.getElementById('check-all').addEventListener('click', checkAll)
+  document
+    .getElementById('merge-selected')
+    .addEventListener('click', mergeSelected)
+  document
+    .getElementById('merge-all')
+    .addEventListener('click', checkAllAndMergeAll)
   return false
 })
