@@ -9,3 +9,11 @@
 ## Documentation
 
 https://wiki.musicbrainz.org/Guides/Userscripts
+
+* [atj](https://github.com/atj/userscripts)
+* [jesus2099](https://github.com/jesus2099/konami-command)
+* [loujine](https://github.com/loujine/musicbrainz-scripts)
+* [murdos](https://github.com/murdos/musicbrainz-userscripts)
+* [RandomMushroom128](https://codeberg.org/RandomMushroom128/userscripts)
+* [ROpdebee](https://github.com/ROpdebee/mb-userscripts)
+* [Smeulf](https://github.com/Smeulf/userscripts)
