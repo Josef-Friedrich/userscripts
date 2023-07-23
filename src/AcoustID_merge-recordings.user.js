@@ -6,7 +6,7 @@
 // @name         MusicBrainz: Merge recordings from the AcoustID track page (https://acoustid.org/track/…)
 // @namespace    josef-friedrich
 // @author       loujine, Josef Friedrich
-// @version      0.6.0
+// @version      0.7.0
 // @downloadURL  https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js
 // @updateURL    https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js
 // @supportURL   https://github.com/Josef-Friedrich/userscripts
@@ -30,14 +30,14 @@
  *
  * https://musicbrainz.org/doc/MusicBrainz_API/Rate_Limiting
  *
- * We use a User-Agent
+ * We use a User-Agent, but lower value is not working
  */
-const RATE_LIMIT = 100
+const RATE_LIMIT = 1000
 
 /**
  * https://musicbrainz.org/doc/MusicBrainz_API/Rate_Limiting#Provide_meaningful_User-Agent_strings
  */
-const USER_AGENT = 'AcoustID_merge-recordings/0.6.0 (https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js josef@friedrich.rocks)'
+const USER_AGENT = 'AcoustID_merge-recordings/0.7.0 (https://github.com/Josef-Friedrich/userscripts/raw/main/src/AcoustID_merge-recordings.user.js josef@friedrich.rocks)'
 
 /**
  * Result from `https://musicbrainz.org/ws/js/entity/887cf84f-d47c-4963-8b66-2ce71257815a`
